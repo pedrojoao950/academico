@@ -8,6 +8,14 @@ computador — não precisa de instalar nada (sem Python, sem Node.js, sem
 ligação à internet). Todos os dados ficam guardados apenas neste
 computador (no browser utilizado).
 
+Cobre: autenticação com 9 perfis, Alunos, Professores, Cursos,
+Disciplinas, Turmas & Horários, Matrículas, Inscrições (admissão
+competitiva), Notas, Frequência, Períodos de Avaliação, Trabalhos de
+grupo, Materiais de apoio por disciplina, Financeiro (com recibo
+automático em duplicado), Biblioteca (normas de citação, controlo de
+leitura no local), Recursos Humanos, Cadastros, fotos de perfil,
+exportação para Excel/PDF, backups automáticos e auditoria/logs.
+
 
 COMO INICIAR A DEMONSTRAÇÃO
 ----------------------------
@@ -76,6 +84,10 @@ NOTAS IMPORTANTES
 - Ficheiro "DOCUMENTACAO.md" (ou "DOCUMENTACAO.docx") nesta pasta contém
   a documentação técnica completa do sistema, para quem quiser perceber
   o funcionamento por dentro.
+- O código-fonte também está disponível em:
+      https://github.com/pedrojoao950/academico
+  (ficheiro "README.md" desse repositório tem instruções de instalação
+  alternativas, incluindo para macOS/Linux).
 
 
 SE O DUPLO-CLIQUE NO INICIAR.bat NÃO FUNCIONAR
