@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-AO">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIGA — Sistema Integrado de Gestão Acadêmica</title>
+<link rel="stylesheet" href="css/styles.css?v=27">
+<script src="js/vendor/xlsx.full.min.js"></script>
+</head>
+<body>
+
+<div class="login-screen" id="loginScreen">
+  <div class="login-card">
+    <div class="login-brand">
+      <div class="brand-mark">SGA</div>
+      <div class="brand-text">
+        <strong>SIGA</strong>
+        <span>Gestão Acadêmica</span>
+      </div>
+    </div>
+    <p class="login-note">Protótipo com dados fictícios — escolha uma conta de demonstração ou inicie sessão manualmente. As permissões de cada perfil determinam o que aparece a seguir.</p>
+
+    <div class="demo-accounts" id="demoAccounts"><!-- injected --></div>
+
+    <div class="login-divider"><span>ou inicie sessão manualmente</span></div>
+
+    <form id="loginForm" class="login-form">
+      <div class="field">
+        <label>Email</label>
+        <input id="loginEmail" type="email" autocomplete="username" placeholder="nome@isg.ao">
+      </div>
+      <div class="field">
+        <label>Palavra-passe</label>
+        <input id="loginSenha" type="password" autocomplete="current-password">
+      </div>
+      <div class="login-error" id="loginError"></div>
+      <button type="submit" class="btn btn-primary" style="width:100%;">Entrar</button>
+    </form>
+  </div>
+</div>
+
+<div class="app" id="appShell">
+
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="brand-mark">SGA</div>
+      <div class="brand-text">
+        <strong>SIGA</strong>
+        <span>Gestão Acadêmica</span>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <div class="nav-group-label">Visão Geral</div>
+      <button class="nav-item" data-section="dashboard" data-module="dashboard">
+        <span class="nav-icon">▤</span> Dashboard
+      </button>
+      <button class="nav-item" data-section="painelProfessor" data-module="painelProfessor">
+        <span class="nav-icon">◧</span> Painel do Professor
+      </button>
+      <button class="nav-item" data-section="meuPainel" data-module="meuPainel">
+        <span class="nav-icon">◧</span> Meu Painel
+      </button>
+
+      <div class="nav-group-label">Pessoas</div>
+      <button class="nav-item" data-section="alunos" data-module="alunos">
+        <span class="nav-icon">◑</span> Alunos
+      </button>
+      <button class="nav-item" data-section="professores" data-module="professores">
+        <span class="nav-icon">◐</span> Professores
+      </button>
+      <button class="nav-item" data-section="inscricoes" data-module="inscricoes">
+        <span class="nav-icon">✎</span> Inscrições
+      </button>
+
+      <div class="nav-group-label">Académico</div>
+      <button class="nav-item" data-section="cursos" data-module="cursos">
+        <span class="nav-icon">▥</span> Cursos
+      </button>
+      <button class="nav-item" data-section="disciplinas" data-module="disciplinas">
+        <span class="nav-icon">▦</span> Disciplinas
+      </button>
+      <button class="nav-item" data-section="turmas" data-module="turmas">
+        <span class="nav-icon">▧</span> Turmas &amp; Horários
+      </button>
+      <button class="nav-item" data-section="matriculas" data-module="matriculas">
+        <span class="nav-icon">✎</span> Matrículas
+      </button>
+      <button class="nav-item" data-section="periodos" data-module="periodos">
+        <span class="nav-icon">⏱</span> Períodos de Avaliação
+      </button>
+      <button class="nav-item" data-section="notas" data-module="notas">
+        <span class="nav-icon">✓</span> Notas
+      </button>
+      <button class="nav-item" data-section="frequencia" data-module="frequencia">
+        <span class="nav-icon">◫</span> Frequência
+      </button>
+      <button class="nav-item" data-section="trabalhos" data-module="trabalhos">
+        <span class="nav-icon">✎</span> Trabalhos
+      </button>
+      <button class="nav-item" data-section="materiais" data-module="materiais">
+        <span class="nav-icon">▦</span> Materiais
+      </button>
+
+      <div class="nav-group-label">Gestão</div>
+      <button class="nav-item" data-section="financeiro" data-module="financeiro">
+        <span class="nav-icon">$</span> Financeiro
+      </button>
+      <button class="nav-item" data-section="biblioteca" data-module="biblioteca">
+        <span class="nav-icon">▤</span> Biblioteca
+      </button>
+      <button class="nav-item" data-section="rh" data-module="rh">
+        <span class="nav-icon">◐</span> Recursos Humanos
+      </button>
+
+      <div class="nav-group-label">Administração</div>
+      <button class="nav-item" data-section="cadastros" data-module="cadastros">
+        <span class="nav-icon">⚙</span> Cadastros
+      </button>
+      <button class="nav-item" data-section="utilizadores" data-module="utilizadores">
+        <span class="nav-icon">◐</span> Utilizadores
+      </button>
+      <button class="nav-item" data-section="permissoes" data-module="permissoes">
+        <span class="nav-icon">🔒</span> Permissões
+      </button>
+      <button class="nav-item" data-section="backups" data-module="backups">
+        <span class="nav-icon">⟳</span> Backups
+      </button>
+      <button class="nav-item" data-section="auditoria" data-module="auditoria">
+        <span class="nav-icon">🛡</span> Auditoria e Logs
+      </button>
+    </nav>
+
+    <div class="sidebar-footer">
+      <button class="reset-btn" id="btnReset">↺ Repor dados de exemplo</button>
+      <div class="version">Protótipo v0.2 · dados locais</div>
+    </div>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <button class="menu-toggle" id="menuToggle">☰</button>
+      <h1 id="pageTitle">Dashboard</h1>
+      <div class="topbar-right">
+        <span class="ano-letivo">Ano Letivo <strong id="anoLetivoAtual">2026</strong></span>
+        <div class="user-chip">
+          <div class="avatar" id="userAvatar">A</div>
+          <div class="user-chip-text">
+            <span id="userChipName">Admin</span>
+            <span class="role-pill" id="userChipRole">Administrador</span>
+          </div>
+        </div>
+        <button class="btn btn-sm" id="btnLogout">Sair</button>
+      </div>
+    </header>
+
+    <main class="content" id="content">
+      <!-- sections injected by app.js -->
+    </main>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" id="modal">
+    <div class="modal-header">
+      <h2 id="modalTitle">Título</h2>
+      <button class="modal-close" id="modalClose">✕</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="js/app.js?v=27"></script>
+</body>
+</html>

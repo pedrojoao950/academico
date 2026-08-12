@@ -1,0 +1,88 @@
+========================================================================
+ SIGA — Sistema Integrado de Gestão Académica
+ Protótipo de demonstração
+========================================================================
+
+Este é um protótipo funcional que corre inteiramente no browser do
+computador — não precisa de instalar nada (sem Python, sem Node.js, sem
+ligação à internet). Todos os dados ficam guardados apenas neste
+computador (no browser utilizado).
+
+
+COMO INICIAR A DEMONSTRAÇÃO
+----------------------------
+1. Copie esta pasta inteira para o computador de demonstração (por
+   pen-drive, email, OneDrive, etc.). Pode ficar em qualquer localização
+   (Ambiente de Trabalho, Documentos, etc.) — não precisa de permissões
+   de administrador.
+
+2. Dê duplo-clique no ficheiro:
+
+       INICIAR.bat
+
+   Isto abre uma janela preta (o "servidor local" do SIGA — não a feche)
+   e, dois segundos depois, abre automaticamente o browser predefinido
+   com o sistema já a funcionar.
+
+3. Se o Windows mostrar um aviso do "Controlo de Conta de Utilizador" ou
+   do Firewall a perguntar se autoriza o PowerShell/servidor local a
+   comunicar em rede, escolha "Permitir acesso" — é só para servir os
+   ficheiros dentro desta pasta ao próprio browser deste computador, não
+   sai para a internet.
+
+
+COMO TERMINAR A DEMONSTRAÇÃO
+------------------------------
+Feche a janela preta chamada "SIGA - Servidor Local (NAO FECHAR durante
+a demonstracao)". O browser pode ficar aberto ou ser fechado à vontade —
+sem essa janela, o sistema deixa simplesmente de responder.
+
+
+CONTAS DE DEMONSTRAÇÃO
+------------------------
+O ecrã de login tem botões de acesso rápido para cada perfil. As
+credenciais completas (caso prefira digitar) são:
+
+  Administrador............. admin@isg.ao / admin123
+  Secretaria Académica....... secretaria.academica@isg.ao / secacad123
+  Técnico Sec. Académica..... tecnico.academico@isg.ao / tecacad123
+  Professor.................. carlos.neto@isp.ao / prof123
+  Estudante.................. miguel.santos@aluno.isp.ao / aluno123
+  Secretaria Financeira...... secretaria.financeira@isg.ao / secfin123
+  Técnico Sec. Financeira.... tecnico.financeiro@isg.ao / tecfin123
+  Biblioteca................. biblioteca@isg.ao / biblio123
+  Recursos Humanos........... rh@isg.ao / rh123
+
+
+REPOR OS DADOS DE EXEMPLO
+----------------------------
+Se os dados forem alterados durante a demonstração e quiser voltar ao
+ponto de partida, entre como Administrador e use o botão
+"↺ Repor dados de exemplo" no fundo do menu lateral.
+
+
+NOTAS IMPORTANTES
+--------------------
+- Este é um PROTÓTIPO de demonstração, não um sistema em produção: as
+  senhas ficam guardadas em texto simples e não há um servidor real por
+  trás — tudo corre no browser. Não deve ser usado com dados reais de
+  estudantes.
+- Os dados ficam guardados no browser deste computador (localStorage).
+  Se limpar o histórico/dados de navegação do browser, os dados
+  introduzidos durante a demonstração perdem-se (os dados de exemplo
+  voltam a aparecer da próxima vez que abrir).
+- A exportação para Excel e a impressão em PDF funcionam totalmente
+  offline (a biblioteca necessária já vem incluída na pasta js/vendor).
+- Ficheiro "DOCUMENTACAO.md" (ou "DOCUMENTACAO.docx") nesta pasta contém
+  a documentação técnica completa do sistema, para quem quiser perceber
+  o funcionamento por dentro.
+
+
+SE O DUPLO-CLIQUE NO INICIAR.bat NÃO FUNCIONAR
+-------------------------------------------------
+Alternativa manual, com o PowerShell:
+  1. Abra a pasta desta demonstração no Explorador de Ficheiros.
+  2. Shift + botão direito do rato numa área vazia da pasta > "Abrir
+     janela do PowerShell aqui" (ou "Abrir no Terminal").
+  3. Escreva: powershell -ExecutionPolicy Bypass -File server.ps1
+  4. Abra o browser manualmente em: http://localhost:5500
